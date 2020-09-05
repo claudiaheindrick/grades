@@ -23,7 +23,7 @@ app.use(gradeRouter);
 app.use(
   cors({
     //origin: 'http://localhost:8080',
-    origin: 'https://claudiaheindrick-grades-app.herokuapp.com/grade',
+    origin: 'https://claudiaheindrick-grades-app.herokuapp.com',
   })
 );
 
