@@ -1,5 +1,5 @@
 export default (mongoose) => {
-  const gradeSchema = mongoose.Schema({
+  const schema = mongoose.Schema({
     name: {
       type: String,
       require: true,
@@ -24,6 +24,14 @@ export default (mongoose) => {
     },
   });
 
-  const gradeModel = mongoose.model('grade', gradeSchema);
+  schema.method('toJSON', function () {
+    const { __v, _id, ...object } = this.toObject();
+
+    object.id = _id;
+
+    return object;
+  });
+
+  const gradeModel = mongoose.model('grade', schema);
   return gradeModel;
 };

@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { gradeModel } from './grade.js';
+import gradeModel from './grade.js';
 
 const db = {};
 db.mongoose = mongoose;
