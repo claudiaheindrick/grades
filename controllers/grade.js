@@ -37,6 +37,7 @@ const findAll = async (req, res) => {
     logger.info(`GET /grade`);
 
     if (!data) {
+      logger.error(`GET /grade`);
       res.status(404).send('Não encontrada nenhuma grade');
     } else {
       res.send(data);
