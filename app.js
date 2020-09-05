@@ -20,12 +20,19 @@ const app = express();
 //define o dominio de origem para consumo do servico
 app.use(express.json());
 app.use(gradeRouter);
-app.use(
-  cors({
-    //origin: 'http://localhost:8080',
-    origin: 'https://claudiaheindrick-grades-app.herokuapp.com',
-  })
-);
+app.use((req, res, next) => {
+  // cors({
+  //   //origin: 'http://localhost:8080',
+  //   origin: 'https://claudiaheindrick-grades-app.herokuapp.com',
+  // })
+  res.header(
+    'Access-Control-Allow-Origin',
+    'https://claudiaheindrick-grades-app.herokuapp.com'
+  );
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  app.use(cors());
+  next();
+});
 
 app.get('/', (req, res) => {
   res.send('API em execucao');
