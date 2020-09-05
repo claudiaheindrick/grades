@@ -9,7 +9,7 @@ import { db } from './models/index.js';
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
-    console.log('Connected to MongoDB')
+    console.log('Connected to MongoDB');
   } catch (error) {
     process.exit();
   }
@@ -31,4 +31,6 @@ app.get('/', (req, res) => {
   res.send('API em execucao');
 });
 
-app.listen(process.env.PORT || 8081, () => {});
+app.listen(process.env.PORT || 8081, () => {
+  console.log(`API Launched`);
+});
